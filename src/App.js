@@ -30,7 +30,13 @@ function App() {
       setWeather(weatherData);
     }
 
-    getWeather();
+    const intervalID = setInterval(() => {
+      getWeather();
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalID);
+    };
   }, []);
 
   const filteredActivities = activities.filter(
