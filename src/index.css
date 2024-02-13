@@ -29,4 +29,16 @@ li {
   color: white;
   border: solid black 2px;
   padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.button__delete {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: large;
 }

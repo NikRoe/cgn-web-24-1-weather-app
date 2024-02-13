@@ -16,6 +16,10 @@ function App() {
     setActivities([...activities, { id: uid(), ...newActivity }]);
   }
 
+  function handleDeleteActivity(activityId) {
+    setActivities(activities.filter((activity) => activityId !== activity.id));
+  }
+
   useEffect(() => {
     async function getWeather() {
       const response = await fetch(
@@ -36,7 +40,11 @@ function App() {
   return (
     <>
       <h1>Recap Project 4</h1>
-      <List activities={filteredActivities} weather={weather} />
+      <List
+        activities={filteredActivities}
+        weather={weather}
+        onDeleteActivity={handleDeleteActivity}
+      />
       <Form onAddActivity={handleAddActivity} />
     </>
   );
